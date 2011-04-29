@@ -10,5 +10,9 @@ describe "App" do
 	it "should send all other requests to the catchall view" do
 		get "/foo"
 		response.should have_selector "#catchallredirect"
+	  get "/"
+		response.should have_selector "#catchallredirect"
+		get "/?p=101010"
+		response.should have_selector "#catchallredirect"
 	end
 end
